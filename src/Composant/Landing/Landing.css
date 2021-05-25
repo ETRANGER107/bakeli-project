@@ -4,7 +4,9 @@
 
 
 /* Custom default button */
-.btn-secondary,
+.btn-secondary{
+  color: #333;
+}
 .btn-secondary:hover,
 .btn-secondary:focus {
   color: #333;
@@ -12,18 +14,19 @@
 }
 
 
+
 /*
  * Base structure
  */
 
-body {
+/* body {
   text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
   box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-}
+} */
 
-.cover-container {
+/* .cover-container {
   max-width: 42em;
-}
+} */
 
 
 /*
@@ -50,4 +53,9 @@ body {
 .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
+}
+
+.land{
+  background-color: rgb(8, 216, 253);
+  height: 100vh;
 }

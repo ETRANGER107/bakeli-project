@@ -42,24 +42,24 @@ const App = () => {
 
                 {/* <hr/> */}
                 <Route exact path={ROUTES.LANDING} component={LandingPage} />
-                <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-                <Route path={ROUTES.SIGN_IN} component={SignInPageApp} />
-                <Route path={ROUTES.SIGN_IN_ADM} component={SignInPageAdm} />
-                <Route path={ROUTES.HOME} component={HomePageApp} />
-                <Route path={ROUTES.HOME_ADM} component={HomePageAdmin} />
-                <Route path={ROUTES.COURS_ADM} component={ListeCoursAdmin} />
-                <Route path={ROUTES.COURS_APP} component={ListeCours} />
-                <Route path={ROUTES.ADD_COURSE} component={AddCourse} />
-                <Route path={ROUTES.ARCHI_COURSE} component={Archive} />
-                <Route path={ROUTES.DETAIL_ARCHI_COURSE} component={DetailArchive} />
-                <Route path={ROUTES.ADD_PROF} component={AjoutProfesseur} />
-                <Route path={ROUTES.LISTE_PROF} component={ListeProfesseur} />
-                <Route path={ROUTES.DETAIL_PROF} component={DetailProfesseur} />
-                <Route path={ROUTES.ADD_APP} component={AjoutApprenant} />
-                <Route path={ROUTES.LISTE_APP} component={ListeApprenant} />
-                <Route path={ROUTES.DETAIL_APP} component={DetailApprenant} />
-                <Route path={ROUTES.ARCHI_APP} component={ArchiveApp} />
-                <Route path={ROUTES.CALENDAR} component={Calendars} />
+                <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+                <Route exact path={ROUTES.SIGN_IN} component={SignInPageApp} />
+                <Route exact path={ROUTES.SIGN_IN_ADM} component={SignInPageAdm} />
+                <Route exact path={ROUTES.HOME} component={HomePageApp} />
+                <Route exact path={ROUTES.HOME_ADM} component={HomePageAdmin} />
+                <Route exact exact path={ROUTES.COURS_ADM} component={ListeCoursAdmin} />
+                <Route exact path={ROUTES.COURS_APP} component={ListeCours} />
+                <Route exact path={ROUTES.ADD_COURSE} component={AddCourse} />
+                <Route exact path={ROUTES.ARCHI_COURSE} component={Archive} />
+                <Route exact path={ROUTES.DETAIL_ARCHI_COURSE} component={DetailArchive} />
+                <Route exact path={ROUTES.ADD_PROF} component={AjoutProfesseur} />
+                <Route exact path={ROUTES.LISTE_PROF} component={ListeProfesseur} />
+                <Route exact path={ROUTES.DETAIL_PROF} component={DetailProfesseur} />
+                <Route exact path={ROUTES.ADD_APP} component={AjoutApprenant} />
+                <Route exact path={ROUTES.LISTE_APP} component={ListeApprenant} />
+                <Route exact path={ROUTES.DETAIL_APP} component={DetailApprenant} />
+                <Route exact path={ROUTES.ARCHI_APP} component={ArchiveApp} />
+                <Route exact path={ROUTES.CALENDAR} component={Calendars} />
             </div>
             
         </Router>

@@ -286,10 +286,10 @@ const HomePageAdmin = () => {
                 
                 <footer style={{position: "fixed", bottom: "0px", left: "220px"}} class="footer my-2 py-3 bg-none text-center">
                 
-                <div class="container text-center">
-                    <span class="text-muted">Copyright &copy; All rights reserved | This template is made with ♡ by crazy_coderz.</span>
-                </div>
-            </footer>
+                    <div class="container text-center">
+                        <span class="text-muted">Copyright &copy; All rights reserved | This template is made with ♡ by crazy_coderz.</span>
+                    </div>
+                </footer>
                 
                 
             </div>
@@ -305,8 +305,6 @@ const HomePageAdmin = () => {
             <div className="col-lg-3 pt-5 px-0 mx-0 aside">
                 <Aside />
             </div>
-            
-            
 		</div>
         
         </div>

@@ -47,7 +47,7 @@ class Firebase{
     loginUser = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password)
 
-    doSignOut = () => this.auth.signOut()
+    doSignOut = () => this.auth.signOut();
 
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email)
 
@@ -86,9 +86,11 @@ class Firebase{
     });
 
 
-    
+      // *** User API ***
       user = uid => this.db.ref(`users/${uid}`);
       users = () => this.db.ref('users');
+
+      // *** Cours API ***
 
       Cour = uid => this.db.ref(`Cours/${uid}`);
       Cours = () => this.db.ref('Cours');
@@ -96,8 +98,12 @@ class Firebase{
       Cours2 = uid => this.db.ref(`Cours2/${uid}`);
       Cours2 = () => this.db.ref('Cours2');
 
+      // *** Apprenant API ***
+
       DetailApprenant = uid => this.db.ref(`DetailApprenant/${uid}`);
       DetailApprenants = () => this.db.ref('DetailApprenant');
+
+      // *** Professeur API ***
 
       // ajout_prof = uid => this.db.ref(`ajout_prof/${uid}`);
       // ajout_profs = () => this.db.ref('ajout_prof');

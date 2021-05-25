@@ -139,7 +139,9 @@ import './HomePageApp.css';
 import * as ROUTES from '../../../Constant/routes';
 import Calendars from "./Aside/Calendars"
 import ListeCours from "../../Apprenant/Cours/ListeCours/ListeCours"
+import Card from "./index"
 import Badge from 'react-bootstrap/Badge'
+import SignOutButton from '../../Deconnexion';
 //import ListeCours from '../Cours/ListeCours/ListeCours'
 
 
@@ -221,6 +223,9 @@ const HomePageApp = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link" to={ROUTES}>Déconnexion</Link>
                                 </li>
+                                {/* <li>
+                                    <SignOutButton />
+                                </li> */}
                             </ul>
                             </div>
                         </div>
@@ -240,6 +245,7 @@ const HomePageApp = () => {
                 </div>
                         
                             <Switch>
+                                <Route path="/home" component={Card} />
                                 <Route path="/liste_cours_app" component={ListeCours}/>
                                 <Route exact path="/calendar" component={Calendars}/>
                             </Switch>

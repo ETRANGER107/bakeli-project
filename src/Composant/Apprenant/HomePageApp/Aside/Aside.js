@@ -43,6 +43,9 @@ the card's content. */}
 </ListGroup.Item>
 <ListGroup.Item>Journée d'integration</ListGroup.Item>
 <ListGroup.Item>Jéema codé</ListGroup.Item>
+<ListGroup.Item variant="danger">Examen <Badge variant="warning" className="mr-3">1</Badge>
+
+</ListGroup.Item>
 </ListGroup>
 {/* <Card.Body>
 <Card.Link href="#">Card Link</Card.Link>
