@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import TutorialDataService from "../../../../services/professeur.service";
+import TutorialDataServiceD from "../../../../services/professeur2.service";
 
-import Tutorial from "../DetailProfesseur/DetailProfesseur";
-import "./ListeProfesseur.css"
+import Tutorial from "./Archive2";
 
-export default class ListeProfesseur extends Component {
+export default class ArchiveProfesseur extends Component {
   constructor(props) {
     super(props);
     this.refreshList = this.refreshList.bind(this);
@@ -20,27 +19,27 @@ export default class ListeProfesseur extends Component {
   }
 
   componentDidMount() {
-    TutorialDataService.getAll().on("value", this.onDataChange);
+    TutorialDataServiceD.getAll().on("value", this.onDataChange);
   }
 
   componentWillUnmount() {
-    TutorialDataService.getAll().off("value", this.onDataChange);
+    TutorialDataServiceD.getAll().off("value", this.onDataChange);
   }
 
   onDataChange(items) {
     let tutorials = [];
 
     items.forEach((item) => {
-      let key = item.key;
-      let data = item.val();
-      tutorials.push({
-        key: key,
-        title: data.title,
-        date: data.date,
-        time: data.time,
-        published: data.published,
+        let key = item.key;
+        let data = item.val();
+        tutorials.push({
+          key: key,
+          title: data.title,
+          date: data.date,
+          time: data.time,
+          published: data.published,
+        });
       });
-    });
 
     this.setState({
       tutorials: tutorials,
@@ -62,7 +61,7 @@ export default class ListeProfesseur extends Component {
   }
 
   removeAllTutorials() {
-    TutorialDataService.deleteAll()
+    TutorialDataServiceD.deleteAll()
       .then(() => {
         this.refreshList();
       })
@@ -77,11 +76,10 @@ export default class ListeProfesseur extends Component {
     return (
       <div className="list row">
         <div className="col-md-6">
-          
-          <div className="card-header bg-dark">
-          <h4 class="text-light">Liste des professeur</h4>
+        <div className="card-header bg-dark">
+          <h4 class="text-light">Professeur archivés</h4>
           </div>
-          
+
           <ul className="list-group">
             {tutorials &&
               tutorials.map((tutorial, index) => (
@@ -97,13 +95,13 @@ export default class ListeProfesseur extends Component {
                 </li>
               ))}
           </ul>
-
           <button
             className="m-3 btn btn-sm btn-danger"
             onClick={this.removeAllTutorials}
           >
             Remove All
           </button>
+
         </div>
         <div className="col-md-6">
           {currentTutorial ? (
@@ -114,7 +112,8 @@ export default class ListeProfesseur extends Component {
           ) : (
             <div>
               <br />
-              <p class="text-light">Clickez sur un cours pour voir les détails</p>
+              <p>Clickez pour voir les détails
+              </p>
             </div>
           )}
         </div>
