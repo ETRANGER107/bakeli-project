@@ -12,6 +12,7 @@ export const DETAIL_ARCHI_COURSE = '/archive_detail';
 export const ADD_PROF = '/ajout_prof';
 export const LISTE_PROF = '/liste_prof';
 export const DETAIL_PROF = '/edit/:id';
+export const ARCHI_PROF = '/archi_prof';
 export const ADD_APP = '/ajout_app';
 export const LISTE_APP = '/liste_app';
 export const DETAIL_APP = '/detail_app';

@@ -82,7 +82,7 @@ export default class ListeCoursAdmin extends Component {
         <div className="col-md-6">
           
           <div className="card-header bg-info">
-          <h4 class="text-dark">Liste des cours</h4>
+          <h4 class="text-light">Liste des cours</h4>
           </div>
           
           <ul className="list-group">
@@ -102,10 +102,10 @@ export default class ListeCoursAdmin extends Component {
           </ul>
 
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-danger text-dark"
             onClick={this.removeAllTutorials}
           >
-            Remove All
+            Enlever tout
           </button>
         </div>
         <div className="col-md-6">
@@ -117,7 +117,7 @@ export default class ListeCoursAdmin extends Component {
           ) : (
             <div>
               <br />
-              <p>Clickez sur un cours pour voir les détails</p>
+              <p>Cliquez sur un cours pour voir les détails</p>
             </div>
           )}
         </div>

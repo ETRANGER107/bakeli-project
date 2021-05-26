@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import TutorialDataServiceB from "../services/service1";
+import TutorialDataServiceD from "../../../services/professeur.service2";
 
-import Tutorial from "./DetailArchive";
+import Tutorial from "./Archive2";
 
-export default class Archives extends Component {
+class ArchiveProfesseur extends Component {
   constructor(props) {
     super(props);
     this.refreshList = this.refreshList.bind(this);
@@ -19,29 +19,27 @@ export default class Archives extends Component {
   }
 
   componentDidMount() {
-    TutorialDataServiceB.getAll().on("value", this.onDataChange);
+    TutorialDataServiceD.getAll().on("value", this.onDataChange);
   }
 
   componentWillUnmount() {
-    TutorialDataServiceB.getAll().off("value", this.onDataChange);
+    TutorialDataServiceD.getAll().off("value", this.onDataChange);
   }
 
   onDataChange(items) {
     let tutorials = [];
 
     items.forEach((item) => {
-      let key = item.key;
-      let data = item.val();
-      tutorials.push({
-        key: key,
-        noms: data.noms,
-        prenoms: data.prenoms,
-        telephone: data.telephone,
-        gmail: data.gmail,
-        passe: data.passe,
-        published: data.published,
+        let key = item.key;
+        let data = item.val();
+        tutorials.push({
+          key: key,
+          title: data.title,
+          date: data.date,
+          time: data.time,
+          published: data.published,
+        });
       });
-    });
 
     this.setState({
       tutorials: tutorials,
@@ -63,7 +61,7 @@ export default class Archives extends Component {
   }
 
   removeAllTutorials() {
-    TutorialDataServiceB.deleteAll()
+    TutorialDataServiceD.deleteAll()
       .then(() => {
         this.refreshList();
       })
@@ -78,7 +76,9 @@ export default class Archives extends Component {
     return (
       <div className="list row">
         <div className="col-md-6">
-          <h4>listes des Apprenants Archiver</h4>
+        <div className="card-header bg-dark">
+          <h4 class="text-light">Professeurs archivés</h4>
+          </div>
 
           <ul className="list-group">
             {tutorials &&
@@ -91,17 +91,17 @@ export default class Archives extends Component {
                   onClick={() => this.setActiveTutorial(tutorial, index)}
                   key={index}
                 >
-                  {tutorial.noms}
+                  {tutorial.title}
                 </li>
               ))}
           </ul>
-
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-danger text-dark"
             onClick={this.removeAllTutorials}
           >
-            Remove All
+            Enlever tout
           </button>
+
         </div>
         <div className="col-md-6">
           {currentTutorial ? (
@@ -112,7 +112,8 @@ export default class Archives extends Component {
           ) : (
             <div>
               <br />
-              <p>Cliquez sur un apprenant pour voir ses détails</p>
+              <p>Cliquez sur un proffeseur pour voir ses détails
+              </p>
             </div>
           )}
         </div>
@@ -120,3 +121,5 @@ export default class Archives extends Component {
     );
   }
 }
+
+export default ArchiveProfesseur;

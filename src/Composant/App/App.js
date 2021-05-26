@@ -16,6 +16,7 @@ import DetailArchive from '../Administrateur/Cours/Archive/DetailArchive';
 import AjoutProfesseur from '../Administrateur/Professeur/AjoutProfesseur/AjoutProfesseur';
 import ListeProfesseur from '../Administrateur/Professeur/ListeProfesseur/ListeProfesseur';
 import DetailProfesseur from '../Administrateur/Professeur/DetailProfesseur/DetailProfesseur';
+// import ArchiveProfesseur from '../Administrateur/Professeur/Archives/Archive/ArchiveProfesseur';
 import AjoutApprenant from '../Administrateur/Apprenant/AjoutApprenant/AjoutApprenant';
 import ListeApprenant from '../Administrateur/Apprenant/ListeApprenant/ListeApprenant';
 import DetailApprenant from '../Administrateur/Apprenant/DetailApprenant/DetailApprenant';
@@ -55,6 +56,7 @@ const App = () => {
                 <Route exact path={ROUTES.ADD_PROF} component={AjoutProfesseur} />
                 <Route exact path={ROUTES.LISTE_PROF} component={ListeProfesseur} />
                 <Route exact path={ROUTES.DETAIL_PROF} component={DetailProfesseur} />
+                {/* <Route exact path={ROUTES.ARCHI_PROF} component={ArchiveProfesseur} /> */}
                 <Route exact path={ROUTES.ADD_APP} component={AjoutApprenant} />
                 <Route exact path={ROUTES.LISTE_APP} component={ListeApprenant} />
                 <Route exact path={ROUTES.DETAIL_APP} component={DetailApprenant} />

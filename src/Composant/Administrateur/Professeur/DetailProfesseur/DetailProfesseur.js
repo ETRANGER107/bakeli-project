@@ -1,108 +1,224 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import TutorialDataService from "../../../services/professeur.service";
+import TutorialDataServiceD from "../../../services/professeur.service2";
 
-import { GlobalContext } from '../context/GlobalState';
+export default class DetailProfesseur extends Component {
+  constructor(props) {
+    super(props);
+    this.onChangeTitle = this.onChangeTitle.bind(this);
+    this.onChangeDate = this.onChangeDate.bind(this);
+    this.onChangeTime = this.onChangeTime.bind(this);
+    this.updatePublished = this.updatePublished.bind(this);
+    this.updateTutorial = this.updateTutorial.bind(this);
+    this.deleteTutorial = this.deleteTutorial.bind(this);
 
-const DetailProfesseur = (route) => {
-  let history = useHistory();
 
-  const { employees, editEmployee } = useContext(GlobalContext);
-
-  const [selectedUser, setSelectedUser] = useState({
-    id: null,
-    name: "",
-    designation: "",
-    location: "",
-  });
-
-  const currentUserId = route.match.params.id;
-
-  useEffect(() => {
-    const employeeId = currentUserId;
-    const selectedUser = employees.find(
-      (currentEmployeeTraversal) => currentEmployeeTraversal.id === parseInt(employeeId)
-    );
-    setSelectedUser(selectedUser);
-  }, [currentUserId, employees]);
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    editEmployee(selectedUser);
-    history.push("/ajout_prof");
-  };
-
-  const handleOnChange = (userKey, newValue) =>
-    setSelectedUser({ ...selectedUser, [userKey]: newValue });
-
-  if (!selectedUser || !selectedUser.id) {
-    return <div>Pas de données.</div>;
+    this.state = {
+      currentTutorial: {
+        key: null,
+        title: "",
+        date: "",
+        time: "",
+        published: false,
+      },
+      message: "",
+    };
   }
 
-  return (
-    <React.Fragment>
-      <div className="w-full max-w-sm container mt-20 mx-auto">
-        <form onSubmit={onSubmit}>
-          <div className="w-full mb-5">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="name"
-            >
-              Nom du professeur
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 
-              text-gray-700 leading-tight focus:text-gray-600 focus:shadow-outline"
-              value={selectedUser.name}
-              onChange={(e) => handleOnChange("name", e.target.value)}
-              type="text"
-              placeholder="Enter name"
-            />
-          </div>
-          <div className="w-full  mb-5">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="location"
-            >
-              Ecole de formation
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full 
-              py-2 px-3 text-gray-700 leading-tight focus:text-gray-600 focus:shadow-outline"
-              value={selectedUser.location}
-              onChange={(e) => handleOnChange("location", e.target.value)}
-              type="text"
-              placeholder="Enter location"
-            />
-          </div>
-          <div className="w-full  mb-5">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="designation"
-            >
-               Matiere enseigné
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 
-              text-gray-700 leading-tight focus:text-gray-600 focus:shadow-outline"
-              value={selectedUser.designation}
-              onChange={(e) => handleOnChange("designation", e.target.value)}
-              type="text"
-              placeholder="Enter designation"
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <button className="block mt-5 bg-green-400 w-full hover:bg-green-500
-             text-white font-bold py-2 px-4 rounded focus:text-gray-600 focus:shadow-outline">
-            Appliquer les modifications
-            </button>
-          </div>
-          <div className="text-center mt-4 text-gray-500">
-            <Link to="/liste_prof">Retour</Link>
-          </div>
-        </form>
-      </div>
-    </React.Fragment>
-  );
-};
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { tutorial } = nextProps;
+    if (prevState.currentTutorial.key !== tutorial.key) {
+      return {
+        currentTutorial: tutorial,
+        message: ""
+      };
+    }
 
-export default DetailProfesseur
+    return prevState.currentTutorial;
+  }
+
+  componentDidMount() {
+    this.setState({
+      currentTutorial: this.props.tutorial,
+    });
+  }
+
+  onChangeTitle(e) {
+    const title = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentTutorial: {
+          ...prevState.currentTutorial,
+          title: title,
+        },
+      };
+    });
+  }
+
+  onChangeDate(e) {
+    const date = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentTutorial: {
+          ...prevState.currentTutorial,
+          date: date,
+        },
+      };
+    });
+  }
+
+  onChangeTime(e) {
+    const time = e.target.value;
+
+    this.setState(function (prevState) {
+      return {
+        currentTutorial: {
+          ...prevState.currentTutorial,
+          time: time,
+        },
+      };
+    });
+  }
+
+  updatePublished() {
+    let data = {
+      title: this.state.title,
+      date: this.state.date,
+      time: this.state.time,
+      published: false
+    };
+    
+    var notif = ("Vous avez Archiver");
+    TutorialDataServiceD.create(data)
+      .then(() => {
+        console.log("Created new item successfully!");
+        alert(notif);
+        this.setState({
+          submitted: true,
+        });
+      TutorialDataService.delete(this.state.currentTutorial.key)
+        .then(() => {
+        this.props.refreshList();
+      })
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  updateTutorial() {
+    const data = {
+      title: this.state.currentTutorial.title,
+      date: this.state.currentTutorial.date,
+      time: this.state.currentTutorial.time,
+    };
+
+    TutorialDataService.update(this.state.currentTutorial.key, data)
+      .then(() => {
+        this.setState({
+          message: "The tutorial was updated successfully!",
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  deleteTutorial() {
+    TutorialDataService.delete(this.state.currentTutorial.key)
+      .then(() => {
+        this.props.refreshList();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  render() {
+    const { currentTutorial } = this.state;
+
+    return (
+      <div className="card">
+        <div class="card-header bg-dark">
+          <h4 class="text-light">Détails du professeur</h4>
+        </div>
+        {currentTutorial ? (
+          <div className="card-body">
+          <div>
+            
+            <form>
+              
+              <div className="form-group">
+                
+                <label htmlFor="title">Nom</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="title"
+                  value={currentTutorial.title}
+                  onChange={this.onChangeTitle}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="date">Matiere</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="date"
+                  value={currentTutorial.date}
+                  onChange={this.onChangeDate}
+                />
+              </div>
+
+              <div className="form-group">
+              <label htmlFor="time">Ecole</label>
+              <input
+                type="text"
+                className="form-control"
+                id="time"
+                value={currentTutorial.time}
+                onChange={this.onChangeTime}
+              />
+            </div>
+
+              
+            </form>
+
+              <button
+                className="btn btn-sm btn-primary mr-2 text-dark"
+                onClick={() => this.updatePublished(true)}
+              >
+                Archiver
+              </button>
+            
+
+            <button
+              className="btn btn-sm btn-danger mr-2 text-dark"
+              onClick={this.deleteTutorial}
+            >
+              Effacer
+            </button>
+
+            <button
+              type="submit"
+              className="btn btn-sm btn-success text-dark"
+              onClick={this.updateTutorial}
+            >
+              Mettre à jour
+            </button>
+            <p>{this.state.message}</p>
+          </div>
+          </div>
+        ) : (
+          <div>
+            <br />
+            <p class="text-light">Click on a Tutorial</p>
+          </div>
+        )}
+      </div>
+    );
+  }
+}

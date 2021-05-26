@@ -98,9 +98,9 @@ export default class AjoutApprenant extends Component {
       <div className="submit-form">
         {this.state.submitted ? (
           <div>
-            <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={this.newTutorial}>
-              Add
+            <h4>Apprenant ajouté avec succés!</h4>
+            <button className="btn btn-success text-dark" onClick={this.newTutorial}>
+              Ajouter
             </button>
           </div>
         ) : (
@@ -177,8 +177,8 @@ export default class AjoutApprenant extends Component {
               />
             </div> */}
 
-            <button onClick={this.saveTutorial} className="btn btn-success">
-              Submit
+            <button onClick={this.saveTutorial} className="btn btn-success text-dark">
+              Soumettre
             </button>
             </div>
             </div>

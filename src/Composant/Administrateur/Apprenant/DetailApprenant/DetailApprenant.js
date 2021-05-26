@@ -242,26 +242,26 @@ export default class DetailApprenant extends Component {
             </form>
 
               <button
-                className="btn btn-sm btn-primary mr-2"
+                className="btn btn-sm btn-primary mr-2 text-dark"
                 onClick={() => this.updatePublished(true)}
               >
-                Archive
+                Archiver
               </button>
             
 
             <button
-              className="btn btn-sm btn-danger mr-2"
+              className="btn btn-sm btn-danger mr-2 text-dark"
               onClick={this.deleteTutorial}
             >
-              Delete
+              Effacer
             </button>
 
             <button
               type="submit"
-              className="btn btn-sm btn-success"
+              className="btn btn-sm btn-success text-dark"
               onClick={this.updateTutorial}
             >
-              Update
+              Mettre à jour
             </button>
             <p>{this.state.message}</p>
           </div>

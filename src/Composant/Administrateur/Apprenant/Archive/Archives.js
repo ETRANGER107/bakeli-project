@@ -78,7 +78,9 @@ export default class ArchiveApp extends Component {
     return (
       <div className="list row">
         <div className="col-md-6">
-          <h4>Apprenants archivés</h4>
+        <div className="card-header bg-dark">
+          <h4 className="text-light">Apprenants archivés</h4>
+        </div>
 
           <ul className="list-group">
             {tutorials &&
@@ -97,10 +99,10 @@ export default class ArchiveApp extends Component {
           </ul>
 
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-danger text-dark"
             onClick={this.removeAllTutorials}
           >
-            Remove All
+            Enlever tout
           </button>
         </div>
         <div className="col-md-6">
@@ -112,7 +114,7 @@ export default class ArchiveApp extends Component {
           ) : (
             <div>
               <br />
-              <p>cliquez sur detail...</p>
+              <p>Cliquez sur un apprenant pour voir ses détails</p>
             </div>
           )}
         </div>

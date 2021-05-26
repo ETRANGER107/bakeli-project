@@ -100,10 +100,10 @@ export default class Archive extends Component {
               ))}
           </ul>
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-danger text-dark"
             onClick={this.removeAllTutorials}
           >
-            Remove All
+            Enlever tout
           </button>
 
         </div>
@@ -116,7 +116,7 @@ export default class Archive extends Component {
           ) : (
             <div>
               <br />
-              <p>Clickez pour voir les détails
+              <p>Cliquez sur un cours pour voir ses détails
               </p>
             </div>
           )}

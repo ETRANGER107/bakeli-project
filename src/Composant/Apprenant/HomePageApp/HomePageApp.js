@@ -142,6 +142,7 @@ import ListeCours from "../../Apprenant/Cours/ListeCours/ListeCours"
 import Card from "./index"
 import Badge from 'react-bootstrap/Badge'
 import SignOutButton from '../../Deconnexion';
+import imagg from "../../../imagg.jpeg"
 //import ListeCours from '../Cours/ListeCours/ListeCours'
 
 
@@ -176,8 +177,8 @@ const HomePageApp = () => {
                     <BrowserRouter>
                         
                     <nav id="sidebar" class="active bg-info">
-                    
-                            <h1><Link className="logo nav-link" to={ROUTES.HOME}>M.</Link></h1>
+                            <Link  className="logo nav-link" to={ROUTES.HOME}><img src={imagg} style={{width: "60px", height: "60px", borderRadius: "50%", margin: "auto", marginTop: "20px"}}/></Link>
+                            {/* <h1><Link className="logo nav-link" to={ROUTES.HOME}>M.</Link></h1> */}
                             <ul class="list-unstyled components mb-5">
                             <li className="nav-item active">
                                 <Link className="nav-link" to={ROUTES.HOME}><span class="fa fa-home"></span>Home</Link>

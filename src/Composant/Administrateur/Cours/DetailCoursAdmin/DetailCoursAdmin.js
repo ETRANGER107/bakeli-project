@@ -189,7 +189,7 @@ export default class DetailCours extends Component {
     return (
       <div className="card">
         <div class="card-header bg-dark">
-        <h4 class="text-light">Détails</h4>
+        <h4 class="text-light">Détails du cours</h4>
         </div>
         {currentTutorial ? (
           <div className="card-body">
@@ -267,26 +267,26 @@ export default class DetailCours extends Component {
             </form>
 
               <button
-                className="btn btn-sm btn-primary mr-2"
+                className="btn btn-sm btn-primary mr-2 text-dark"
                 onClick={() => this.updatePublished(true)}
               >
-                Archive
+                Archiver
               </button>
             
 
             <button
-              className="btn btn-sm btn-danger mr-2"
+              className="btn btn-sm btn-danger mr-2 text-dark"
               onClick={this.deleteTutorial}
             >
-              Delete
+              Effacer
             </button>
 
             <button
               type="submit"
-              className="btn btn-sm btn-success"
+              className="btn btn-sm btn-success text-dark"
               onClick={this.updateTutorial}
             >
-              Update
+              Mettre à jour
             </button>
             <p>{this.state.message}</p>
           </div>

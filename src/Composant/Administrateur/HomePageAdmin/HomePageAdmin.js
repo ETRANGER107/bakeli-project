@@ -149,6 +149,7 @@ import AjoutProfesseur from "../Professeur/AjoutProfesseur/AjoutProfesseur"
 import AjoutApprenant from "../Apprenant/AjoutApprenant/AjoutApprenant"
 import Archive from "../Cours/Archive/Archive"
 import DetailProfesseur from "../Professeur/DetailProfesseur/DetailProfesseur"
+import ArchiveProfesseur from "../../Administrateur/Professeur/Archive/Archive"
 import * as ROUTES from '../../../Constant/routes';
 //import ListeApprenant from "../../Administrateur/Apprenant/ListeApprenant/ListeApprenant";
 import AddCourse from "../Cours/AjoutCours/AddCourse";
@@ -156,6 +157,7 @@ import Aside from "./Aside/Aside";
 import Badge from 'react-bootstrap/Badge'
 import Button from 'react-bootstrap/Button'
 import ArchiveApp from "../Apprenant/Archive/Archives";
+import imagg from "../../../imagg.jpeg";
 //import ListApprenant from "../Apprenant/ListApprenant"
 //import ApprenantProvider from "../Apprenant/context/AppreantContext";
 
@@ -192,7 +194,8 @@ const HomePageAdmin = () => {
             <div class="wrapper d-flex align-items-stretch">
             <BrowserRouter> 
 			<nav id="sidebar" class="active bg-info">
-				<h1><Link className="logo nav-link" to={ROUTES.HOME_ADM}>M.</Link></h1>
+                <Link  className="logo nav-link" to={ROUTES.HOME_ADM}><img src={imagg} style={{width: "60px", height: "60px", borderRadius: "50%", margin: "auto", marginTop: "20px"}}/></Link>
+				{/* <h1><Link className="logo nav-link" to={ROUTES.HOME_ADM}>M.</Link></h1> */}
                 <ul class="list-unstyled components mb-5">
                 <li className="nav-item active">
                     <Link className="nav-link" to={ROUTES.HOME_ADM}><span class="fa fa-home"></span>Home</Link>
@@ -209,7 +212,7 @@ const HomePageAdmin = () => {
                     <Link className="nav-link dropdown-toggle" to={ROUTES.HOME_ADM} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><span class="fa fa-file-archive" aria-hidden="true"></span> Archives</Link>
                     <div className="dropdown-menu bg-info">
                         <Link className="dropdown-item px-4 py-2" to={ROUTES.ARCHI_APP}>Archive des apprenant</Link>
-                        <Link className="dropdown-item px-4 py-2" to={ROUTES.ADD_PROF}>Archive des professeur</Link>
+                        <Link className="dropdown-item px-4 py-2" to={ROUTES.ARCHI_PROF}>Archive des professeur</Link>
                         <Link className="dropdown-item px-4 py-2" to={ROUTES.ARCHI_COURSE}>Archive des cours</Link>
                     </div>
                 </li>
@@ -282,6 +285,7 @@ const HomePageAdmin = () => {
                     <Route path="/ajout_prof" component={AjoutProfesseur}/>
                     <Route path="/edit/:id" component={DetailProfesseur}/>
                     <Route path="/ajout_app" component={AjoutApprenant}/>
+                    <Route path="/archi_prof" component={ArchiveProfesseur}/>
                 </Switch>
                 
                 <footer style={{position: "fixed", bottom: "0px", left: "220px"}} class="footer my-2 py-3 bg-none text-center">

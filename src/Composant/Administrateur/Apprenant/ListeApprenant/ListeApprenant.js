@@ -76,9 +76,12 @@ export default class ListeApprenant extends Component {
     const { tutorials, currentTutorial, currentIndex } = this.state;
 
     return (
+      
       <div className="list row">
         <div className="col-md-6">
-          <h4>Liste des Apprenants</h4>
+        <div className="card-header bg-info">
+          <h4 className="text-light">Liste des Apprenants</h4>
+        </div>
 
           <ul className="list-group">
             {tutorials &&
@@ -97,10 +100,10 @@ export default class ListeApprenant extends Component {
           </ul>
 
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-danger text-dark"
             onClick={this.removeAllTutorials}
           >
-            Remove All
+            Enlever tout
           </button>
         </div>
         <div className="col-md-6">
@@ -112,7 +115,7 @@ export default class ListeApprenant extends Component {
           ) : (
             <div>
               <br />
-              <p>cliquez sur detail...</p>
+              <p>Cliquez sur un apprenant pour voir ses détails</p>
             </div>
           )}
         </div>

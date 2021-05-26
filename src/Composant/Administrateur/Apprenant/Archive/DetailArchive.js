@@ -178,8 +178,8 @@ export default class DetailArchive extends Component {
 
     return (
       <div className="card">
-        <div class="card-header bg-dark">
-        <h4 class="text-light">Apprenant</h4>
+        <div class="card-header bg-info">
+        <h4 class="text-light">Détail de l'apprenant</h4>
         </div>
         {currentTutorial ? (
           <div className="card-body">
@@ -250,10 +250,10 @@ export default class DetailArchive extends Component {
             
 
             <button
-              className="btn btn-sm btn-danger mr-2"
+              className="btn btn-sm btn-danger mr-2 text-dark"
               onClick={this.deleteTutorial}
             >
-              Delete
+              Effacer
             </button>
 
             {/* <button
