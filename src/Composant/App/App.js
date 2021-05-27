@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 //import Navigation from '../Navigation/Navigation';
@@ -31,43 +31,99 @@ import HomePageApp from '../Apprenant/HomePageApp/HomePageApp';
 import * as ROUTES from '../../Constant/routes';
 import './App.css';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import { FirebaseContext } from '../Firebase';
+
+import FirebaseContext from '../Firebase/context'
+import ProtectedRoute from '../ProtectedRoute';
+
+
 
 
 const App = () => {
 
- const firebase =  useContext(FirebaseContext)
-  const [authentification, setAuthState] = useState({
-  authenticated:false,
-  initilizing:true
+
+  const firebase = useContext(FirebaseContext);
+
+  const [authentication, setAuthState] = useState({
+    authenticated: false,
+    initializing: true
   });
 
-  useEffect(()=>firebase.auth.onAuthStateChanged(user =>{
-    if(user){
+  useEffect(() => 
+    firebase.auth.onAuthStateChanged(user => {
+    if (user) {
       setAuthState({
-        authenticated:true,
-        initilizing:false
+        authenticated: true,
+        initializing: false
       });
-    }else{
+    } else {
       setAuthState({
-        authenticated:false,
-        initilizing:false
+        authenticated: false,
+        initializing: false
       });
     }
-  }), [setAuthState])
+  }), [setAuthState]);
 
-  if(authentification.initilizing){
-    return <p>loqding...</p>
+  
+
+
+  if (authentication.initializing) {
+    return(
+      <>
+      <div className="loader">
+      <p className="loaderTex"></p>
+      </div>
+      
+      </>
+    ) 
   }
+
+
+
 
   return (
     <Router>
             <div>
+
+
+            <ProtectedRoute path={ROUTES.HOME_ADM} component={HomePageAdmin} authenticated={authentication.authenticated}/>
+                <Route exact path={ROUTES.LANDING} component={LandingPage} authenticated={authentication.authenticated}/>
+                <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+                <Route path={ROUTES.SIGN_IN} component={SignInPageApp} />
+                <Route path={ROUTES.SIGN_IN_ADM} component={SignInPageAdm} />
+                <ProtectedRoute path={ROUTES.COURS_ADM} component={ListeCoursAdmin} authenticated={authentication.authenticated}/>
+                <ProtectedRoute path={ROUTES.HOME} component={HomePageApp} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.HOME_ADM} component={HomePageAdmin} authenticated={authentication.authenticated}/> */}
+                {/* <Route path={ROUTES.COURS_ADM} component={ListeCoursAdmin} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.COURS_APP} component={ListeCours} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.COURS_APP} component={ListeCours} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.ADD_COURSE} component={AddCourse} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.ADD_COURSE} component={AddCourse} authenticated={authentication.authenticated}/> */}
+                {/* <Route path={ROUTES.ARCHI_COURSE} component={Archive} /> */}
+                <ProtectedRoute path={ROUTES.ARCHI_COURSE} component={Archive} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.DETAIL_ARCHI_COURSE} component={DetailArchive} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.DETAIL_ARCHI_COURSE} component={DetailArchive} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.ADD_PROF} component={AjoutProfesseur} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.ADD_PROF} component={AjoutProfesseur} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.LISTE_PROF} component={ListeProfesseur} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.LISTE_PROF} component={ListeProfesseur} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.DETAIL_PROF} component={DetailProfesseur} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.DETAIL_PROF} component={DetailProfesseur} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.ADD_APP} component={AjoutApprenant} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.ADD_APP} component={AjoutApprenant} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.LISTE_APP} component={ListeApprenant} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.LISTE_APP} component={ListeApprenant} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.DETAIL_APP} component={DetailApprenant} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.DETAIL_APP} component={DetailApprenant} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.ARCHI_APP} component={ArchiveApp} authenticated={authentication.authenticated}/> */}
+                <ProtectedRoute path={ROUTES.ARCHI_APP} component={ArchiveApp} authenticated={authentication.authenticated}/>
+                {/* <Route path={ROUTES.CALENDAR} component={Calendars} authenticated={authentication.authenticated}/> */}
+                {/* <ProtectedRoute path={ROUTES.CALEND} component={Calendars} authenticated={authentication.authenticated}/> */}
+           
                 {/*<Navigation />
                 <Navigation2 />*/}
                 {/* <Navigation3 /> */}
 
-                {/* <hr/> */}
+                {/* <hr/>
                 <Route exact path={ROUTES.LANDING} component={LandingPage} />
                 <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
                 <Route exact path={ROUTES.SIGN_IN} component={SignInPageApp} />
@@ -82,12 +138,12 @@ const App = () => {
                 <Route exact path={ROUTES.ADD_PROF} component={AjoutProfesseur} />
                 <Route exact path={ROUTES.LISTE_PROF} component={ListeProfesseur} />
                 <Route exact path={ROUTES.DETAIL_PROF} component={DetailProfesseur} />
-                {/* <Route exact path={ROUTES.ARCHI_PROF} component={ArchiveProfesseur} /> */}
+                <Route exact path={ROUTES.ARCHI_PROF} component={ArchiveProfesseur} />
                 <Route exact path={ROUTES.ADD_APP} component={AjoutApprenant} />
                 <Route exact path={ROUTES.LISTE_APP} component={ListeApprenant} />
                 <Route exact path={ROUTES.DETAIL_APP} component={DetailApprenant} />
                 <Route exact path={ROUTES.ARCHI_APP} component={ArchiveApp} />
-                <Route exact path={ROUTES.CALENDAR} component={Calendars} />
+                <Route exact path={ROUTES.CALENDAR} component={Calendars} /> */}
             </div>
             
         </Router>
@@ -96,3 +152,4 @@ const App = () => {
 }
 
 export default App;
+

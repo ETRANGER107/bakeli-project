@@ -1,33 +1,48 @@
-import React, { useEffect, useState } from "react"
-import { withFirebase } from "../../Firebase/context"
-import "./index.css"
+import React, { useState, useEffect, useContext} from 'react';
+import './index.css'
+import { FirebaseContext, withFirebase } from '../../Firebase';
+
+ 
+const SignOutButton = () => {
 
 
-const SignOutButton = ({firebase}) =>{
-    const [checked, setChecked] = useState(false)
+    const firebase = useContext(FirebaseContext)
 
-    useEffect(()=>{
+    // console.log(firebase)
+
+    const [checked, setChecked] = useState(false);
+    console.log(checked)
+
+        useEffect(() => {
         if(checked){
-            console.log("deconnexion")
+            console.log("deconexion")
             firebase.doSignOut();
         }
     }, [checked, firebase])
 
-    const handleChange = (e)=>{
-        setChecked(e.target.checked)
+   
+    const handleChange = event =>{
+        setChecked(event.target.checked)
     }
 
+
+    
     return(
-        <>
-            <div className="logoutContainer">
-                <label className="switch">
-                    <input type="checkbox" onChange={handleChange} checked={checked}/>
-                    <span className="slider round"></span>
-                </label>
-            </div>
-        </>
+       <>
+        <div className="logoutContainer">
+            <label className="switch">
+                <input type="checkbox" onChange={handleChange} checked={checked}/>
+                <span className="slider round"></span>
+            </label>
+        </div>
+  
+       </>
+            
+        
     )
 }
+    
+  
 
-
+ 
 export default withFirebase(SignOutButton);
