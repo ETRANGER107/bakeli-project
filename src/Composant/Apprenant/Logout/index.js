@@ -29,10 +29,10 @@ const SignOutButton = () => {
     
     return(
        <>
-        <div className="logoutContainer">
-            <label className="switch">
+        <div className="logoutContainer m-0">
+            <label className="switch mx-auto my-0">
                 <input type="checkbox" onChange={handleChange} checked={checked}/>
-                <span className="slider round"></span>
+                <span className="slider round bg-info my-0"></span>
             </label>
         </div>
   

@@ -223,11 +223,11 @@ const HomePageApp = () => {
                                     <Link className="nav-link" to={ROUTES.COURS_APP}>ListeCoursApp</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <SignOutButton/>
-                                </li>
-                                <li>
                                     <SignOutButton />
                                 </li>
+                                {/* <li>
+                                    <SignOutButton />
+                                </li> */}
                             </ul>
                             </div>
                         </div>

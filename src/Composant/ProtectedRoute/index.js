@@ -7,7 +7,7 @@ const ProtectedRoute = ({authenticated : authenticated, component: Component, ..
         if(authenticated){
             return <Component/>
         } else{
-            props.history.push(ROUTES.SIGN_IN_ADM)
+            props.history.push("/")
         }
     }}/>
 }
