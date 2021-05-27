@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from 'react-router-dom';
+// import tutorials from "../../Cours/ListeCoursAdmin/ListeCoursAdmin"
 
 const LandingAdm = () => {
     return(
@@ -12,6 +14,7 @@ const LandingAdm = () => {
                 <div class="row">
                 <div class="col-xl-4 col-sm-6 col-12"> 
                     <div class="card">
+                    <Link to={"/liste_prof"}>
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
@@ -25,10 +28,12 @@ const LandingAdm = () => {
                         </div>
                         </div>
                     </div>
+                    </Link>
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-12">
                     <div class="card">
+                    <Link to={"/liste_cours_adm"}>
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
@@ -36,16 +41,20 @@ const LandingAdm = () => {
                             <i class="fa fa-book warning font-large-2 float-left" aria-hidden="true"></i>
                             </div>
                             <div class="media-body text-right">
+                            {/* {tutorials.length} */}
+                           {/* {` ${tutorials.length}`} */}
                             <h3>17</h3>
                             <span>Nouveau Cours</span>
                             </div>
                         </div>
                         </div>
                     </div>
+                    </Link>
                     </div>
                 </div>     
                 <div class="col-xl-4 col-sm-6 col-12">
                     <div class="card">
+                    <Link to={"/liste_app"}>
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
@@ -59,6 +68,7 @@ const LandingAdm = () => {
                         </div>
                         </div>
                     </div>
+                    </Link>
                     </div>
                 </div>
                 </div>
@@ -121,6 +131,7 @@ const LandingAdm = () => {
                 <div class="row">
                 <div class="col-xl-4 col-sm-6 col-12">
                     <div class="card">
+                    <Link to={"/liste_cours_adm"}>
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
@@ -137,6 +148,7 @@ const LandingAdm = () => {
                         </div>
                         </div>
                     </div>
+                    </Link>
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-12">

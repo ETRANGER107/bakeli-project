@@ -141,9 +141,10 @@ import Calendars from "./Aside/Calendars"
 import ListeCours from "../../Apprenant/Cours/ListeCours/ListeCours"
 import Card from "./index"
 import Badge from 'react-bootstrap/Badge'
-import SignOutButton from '../../Deconnexion';
+// import SignOutButton from '../../Deconnexion';
 import imagg from "../../../imagg.jpeg"
 //import ListeCours from '../Cours/ListeCours/ListeCours'
+import SignOutButton from "../Logout"
 
 
 const HomePageApp = () => {
@@ -222,11 +223,11 @@ const HomePageApp = () => {
                                     <Link className="nav-link" to={ROUTES.COURS_APP}>ListeCoursApp</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link" to={ROUTES}>Déconnexion</Link>
+                                    <SignOutButton/>
                                 </li>
-                                {/* <li>
+                                <li>
                                     <SignOutButton />
-                                </li> */}
+                                </li>
                             </ul>
                             </div>
                         </div>

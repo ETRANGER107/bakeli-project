@@ -74,6 +74,8 @@ export default class ListeCoursAdmin extends Component {
       });
   }
 
+  
+
   render() {
     const { tutorials, currentTutorial, currentIndex } = this.state;
 
@@ -84,7 +86,7 @@ export default class ListeCoursAdmin extends Component {
           <div className="card-header bg-info">
           <h4 class="text-light">Liste des cours</h4>
           </div>
-          
+          {tutorials.length}
           <ul className="list-group">
             {tutorials &&
               tutorials.map((tutorial, index) => (

@@ -22,6 +22,9 @@ class TutorialDataService {
   deleteAll() {
     return db.remove();
   }
+  showLenght() {
+    return db.lenght();
+  }
 }
 
 export default new TutorialDataService();

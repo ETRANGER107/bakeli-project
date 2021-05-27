@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 //import Navigation from '../Navigation/Navigation';
@@ -31,9 +31,35 @@ import HomePageApp from '../Apprenant/HomePageApp/HomePageApp';
 import * as ROUTES from '../../Constant/routes';
 import './App.css';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import { FirebaseContext } from '../Firebase';
 
 
 const App = () => {
+
+ const firebase =  useContext(FirebaseContext)
+  const [authentification, setAuthState] = useState({
+  authenticated:false,
+  initilizing:true
+  });
+
+  useEffect(()=>firebase.auth.onAuthStateChanged(user =>{
+    if(user){
+      setAuthState({
+        authenticated:true,
+        initilizing:false
+      });
+    }else{
+      setAuthState({
+        authenticated:false,
+        initilizing:false
+      });
+    }
+  }), [setAuthState])
+
+  if(authentification.initilizing){
+    return <p>loqding...</p>
+  }
+
   return (
     <Router>
             <div>
