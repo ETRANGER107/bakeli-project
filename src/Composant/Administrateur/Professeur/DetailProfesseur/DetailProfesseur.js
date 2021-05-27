@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import TutorialDataService from "../../../../services/professeur.service";
-import TutorialDataServiceD from "../../../../services/professeur2.service";
+import TutorialDataService from "../../../services/professeur.service";
+import TutorialDataServiceD from "../../../services/professeur.service2";
 
 export default class DetailProfesseur extends Component {
   constructor(props) {
@@ -140,12 +140,12 @@ export default class DetailProfesseur extends Component {
     const { currentTutorial } = this.state;
 
     return (
-      <div className="card bg-dark">
+      <div className="card">
         <div class="card-header bg-dark">
-        <h4 class="text-light">Détails</h4>
+          <h4 class="text-light">Détails du professeur</h4>
         </div>
         {currentTutorial ? (
-          <div className="card-body bg-primary">
+          <div className="card-body">
           <div>
             
             <form>
@@ -188,26 +188,26 @@ export default class DetailProfesseur extends Component {
             </form>
 
               <button
-                className="btn btn-sm btn-primary mr-2"
+                className="btn btn-sm btn-primary mr-2 text-dark"
                 onClick={() => this.updatePublished(true)}
               >
-                Archive
+                Archiver
               </button>
             
 
             <button
-              className="btn btn-sm btn-danger mr-2"
+              className="btn btn-sm btn-danger mr-2 text-dark"
               onClick={this.deleteTutorial}
             >
-              Delete
+              Effacer
             </button>
 
             <button
               type="submit"
-              className="btn btn-sm btn-success"
+              className="btn btn-sm btn-success text-dark"
               onClick={this.updateTutorial}
             >
-              Update
+              Mettre à jour
             </button>
             <p>{this.state.message}</p>
           </div>

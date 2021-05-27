@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import TutorialDataService from "../../../../services/service";
+import TutorialDataServiceB from "../services/service1";
 
-import Tutorial from "../DetailApprenant/DetailApprenant";
+import Tutorial from "./DetailArchive";
 
-export default class ListeApprenant extends Component {
+export default class Archives extends Component {
   constructor(props) {
     super(props);
     this.refreshList = this.refreshList.bind(this);
@@ -19,11 +19,11 @@ export default class ListeApprenant extends Component {
   }
 
   componentDidMount() {
-    TutorialDataService.getAll().on("value", this.onDataChange);
+    TutorialDataServiceB.getAll().on("value", this.onDataChange);
   }
 
   componentWillUnmount() {
-    TutorialDataService.getAll().off("value", this.onDataChange);
+    TutorialDataServiceB.getAll().off("value", this.onDataChange);
   }
 
   onDataChange(items) {
@@ -63,7 +63,7 @@ export default class ListeApprenant extends Component {
   }
 
   removeAllTutorials() {
-    TutorialDataService.deleteAll()
+    TutorialDataServiceB.deleteAll()
       .then(() => {
         this.refreshList();
       })
@@ -76,13 +76,10 @@ export default class ListeApprenant extends Component {
     const { tutorials, currentTutorial, currentIndex } = this.state;
 
     return (
-      
       <div className="list row">
         <div className="col-md-6">
-        <div className="card-header bg-info">
-          <h4 className="text-light">Liste des Apprenants</h4>
-        </div>
-      
+          <h4>listes des Apprenants Archiver</h4>
+
           <ul className="list-group">
             {tutorials &&
               tutorials.map((tutorial, index) => (
@@ -100,10 +97,10 @@ export default class ListeApprenant extends Component {
           </ul>
 
           <button
-            className="m-3 btn btn-sm btn-danger text-dark"
+            className="m-3 btn btn-sm btn-danger"
             onClick={this.removeAllTutorials}
           >
-            Enlever tout
+            Remove All
           </button>
         </div>
         <div className="col-md-6">

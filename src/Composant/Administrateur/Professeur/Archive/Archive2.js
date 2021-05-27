@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import TutorialDataService from "../../../../services/professeur.service";
-import TutorialDataServiceD from "../../../../services/professeur2.service";
+import TutorialDataService from "../../../services/professeur.service";
+import TutorialDataServiceD from "../../../services/professeur.service2";
 
-export default class ArchiveProfesseur extends Component {
+class ArchiveProfesseur extends Component {
     constructor(props) {
         super(props);
         this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -140,14 +140,14 @@ export default class ArchiveProfesseur extends Component {
     
         return (
           <div className="card">
-            <div class="card-header bg-dark">
-            <h4 class="text-light">Détails</h4>
+            <div class="card-header bg-info">
+            <h4 class="text-light">Détails du professeur</h4>
             </div>
             {currentTutorial ? (
               <div>
                 
                 <form>
-                <div className="card-body bg-success">
+                <div className="card-body">
                   <div className="form-group">
                     <label htmlFor="title">Nom</label>
                     <input
@@ -182,10 +182,10 @@ export default class ArchiveProfesseur extends Component {
                 </div>
 
                   <button
-                  className="btn btn-sm btn-danger mr-2"
+                  className="btn btn-sm btn-danger mr-2 text-dark"
                   onClick={this.deleteTutorial}
                 >
-                  Delete
+                  Effacer
                 </button>
                   </div>
                 </form>
@@ -203,3 +203,5 @@ export default class ArchiveProfesseur extends Component {
         );
       }
     }
+
+export default ArchiveProfesseur;

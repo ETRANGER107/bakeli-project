@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import TutorialDataService from "../services/tutorial.service";
-import TutorialDataServiceA from "../services/tutorial2.service";
+import TutorialDataService from "../../../../services/tutorial.service";
+import TutorialDataServiceA from "../../../../services/tutorial2.service";
 
 export default class DetailCours extends Component {
   constructor(props) {
@@ -189,10 +189,10 @@ export default class DetailCours extends Component {
     return (
       <div className="card">
         <div class="card-header bg-dark">
-        <h4 class="text-light">Tutoriel</h4>
+        <h4 class="text-light">Détails du cours</h4>
         </div>
         {currentTutorial ? (
-          <div className="card-body bg-warning">
+          <div className="card-body">
           <div>
             
             <form>
@@ -209,7 +209,7 @@ export default class DetailCours extends Component {
                 />
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="date">Date</label>
                 <input
                   type="text"
@@ -218,9 +218,9 @@ export default class DetailCours extends Component {
                   value={currentTutorial.date}
                   onChange={this.onChangeDate}
                 />
-              </div>
+              </div> */}
 
-              <div className="form-group">
+              {/* <div className="form-group">
               <label htmlFor="time">Temps</label>
               <input
                 type="text"
@@ -229,7 +229,7 @@ export default class DetailCours extends Component {
                 value={currentTutorial.time}
                 onChange={this.onChangeTime}
               />
-            </div>
+            </div> */}
 
             <div className="form-group">
               <label htmlFor="teacher">Professeur</label>
@@ -242,7 +242,7 @@ export default class DetailCours extends Component {
               />
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="lesson">Leçon</label>
               <input
                 type="text"
@@ -251,7 +251,7 @@ export default class DetailCours extends Component {
                 value={currentTutorial.lesson}
                 onChange={this.onChangeLesson}
               />
-            </div>
+            </div> */}
 
               <div className="form-group">
                 <label htmlFor="description">Description</label>
@@ -267,26 +267,26 @@ export default class DetailCours extends Component {
             </form>
 
               <button
-                className="btn btn-sm btn-primary mr-2"
+                className="btn btn-sm btn-primary mr-2 text-dark"
                 onClick={() => this.updatePublished(true)}
               >
-                Archive
+                Archiver
               </button>
             
 
             <button
-              className="btn btn-sm btn-danger mr-2"
+              className="btn btn-sm btn-danger mr-2 text-dark"
               onClick={this.deleteTutorial}
             >
-              Delete
+              Effacer
             </button>
 
             <button
               type="submit"
-              className="btn btn-sm btn-success"
+              className="btn btn-sm btn-success text-dark"
               onClick={this.updateTutorial}
             >
-              Update
+              Mettre à jour
             </button>
             <p>{this.state.message}</p>
           </div>

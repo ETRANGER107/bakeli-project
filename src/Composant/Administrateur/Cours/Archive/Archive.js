@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TutorialDataServiceA from "../services/tutorial2.service";
+import TutorialDataServiceA from "../../../../services/tutorial2.service";
 
 import Tutorial from "./DetailArchive";
 
@@ -81,7 +81,7 @@ export default class Archive extends Component {
         <div className="col-md-6">
 
           <div className="card-header bg-dark">
-          <h4 class="text-light">Archives</h4>
+          <h4 class="text-light">Cours archivés</h4>
           </div>
 
           <ul className="list-group">
@@ -100,10 +100,10 @@ export default class Archive extends Component {
               ))}
           </ul>
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-danger text-dark"
             onClick={this.removeAllTutorials}
           >
-            Remove All
+            Enlever tout
           </button>
 
         </div>
@@ -116,7 +116,8 @@ export default class Archive extends Component {
           ) : (
             <div>
               <br />
-              <p>Click sur un Tutoriel...</p>
+              <p>Cliquez sur un cours pour voir ses détails
+              </p>
             </div>
           )}
         </div>

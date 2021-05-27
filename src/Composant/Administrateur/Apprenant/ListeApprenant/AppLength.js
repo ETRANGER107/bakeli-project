@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import TutorialDataService from "../../../../services/tutorial.service";
+import TutorialDataService from "../../../services/service";
 
-import Tutorial from "../DetailCoursAdmin/DetailCoursAdmin";
-import "./ListeCoursAdmin.css"
-
-export default class ListeCoursAdmin extends Component {
+export default class AppLength extends Component {
   constructor(props) {
     super(props);
     this.refreshList = this.refreshList.bind(this);
@@ -73,57 +70,14 @@ export default class ListeCoursAdmin extends Component {
         console.log(e);
       });
   }
-
-  
-
   render() {
     const { tutorials, currentTutorial, currentIndex } = this.state;
 
-    return (
-      <div className="list row">
-        <div className="col-md-6">
-          
-          <div className="card-header bg-info">
-          <h4 class="text-light">Liste des cours</h4>
-          </div>
-          
-          <ul className="list-group">
-            {tutorials &&
-              tutorials.map((tutorial, index) => (
-                <li
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => this.setActiveTutorial(tutorial, index)}
-                  key={index}
-                >
-                  {tutorial.title}
-                </li>
-              ))}
-          </ul>
-
-          <button
-            className="m-3 btn btn-sm btn-danger text-dark"
-            onClick={this.removeAllTutorials}
-          >
-            Enlever tout
-          </button>
-        </div>
-        <div className="col-md-6">
-          {currentTutorial ? (
-            <Tutorial
-              tutorial={currentTutorial}
-              refreshList={this.refreshList}
-            />
-          ) : (
-            <div>
-              <br />
-              <p>Cliquez sur un cours pour voir les détails</p>
-            </div>
-          )}
-        </div>
-      </div>
-    );
+return (
+   
+        <div>
+        {tutorials.length}
+       </div>
+)
   }
 }

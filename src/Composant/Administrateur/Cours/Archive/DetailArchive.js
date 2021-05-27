@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import TutorialDataService from "../services/tutorial.service";
-import TutorialDataServiceA from "../services/tutorial2.service";
+import TutorialDataService from "../../../../services/tutorial.service";
+import TutorialDataServiceA from "../../../../services/tutorial2.service";
 
 export default class Archive extends Component {
   constructor(props) {
@@ -179,14 +179,14 @@ export default class Archive extends Component {
 
     return (
       <div className="card">
-        <div class="card-header bg-dark">
-        <h4 class="text-light">Tutoriel</h4>
+        <div class="card-header bg-info">
+        <h4 class="text-light">Détails du cour</h4>
         </div>
         {currentTutorial ? (
           <div>
             
             <form>
-            <div className="card-body bg-success">
+            <div className="card-body">
               <div className="form-group">
                 <label htmlFor="title">Titre</label>
                 <input
@@ -198,7 +198,7 @@ export default class Archive extends Component {
                 />
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="date">Date</label>
                 <input
                   type="text"
@@ -218,7 +218,7 @@ export default class Archive extends Component {
                 value={currentTutorial.time}
                 onChange={this.onChangeTime}
               />
-            </div>
+            </div> */}
 
             <div className="form-group">
               <label htmlFor="teacher">Professeur</label>
@@ -231,7 +231,7 @@ export default class Archive extends Component {
               />
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="lesson">Leçon</label>
               <input
                 type="text"
@@ -240,7 +240,7 @@ export default class Archive extends Component {
                 value={currentTutorial.lesson}
                 onChange={this.onChangeLesson}
               />
-            </div>
+            </div> */}
 
               <div className="form-group">
                 <label htmlFor="description">Description</label>
@@ -253,10 +253,10 @@ export default class Archive extends Component {
                 />
               </div>
               <button
-              className="btn btn-sm btn-danger mr-2"
+              className="btn btn-sm btn-danger mr-2 text-dark"
               onClick={this.deleteTutorial}
             >
-              Delete
+              Effacer
             </button>
               </div>
             </form>

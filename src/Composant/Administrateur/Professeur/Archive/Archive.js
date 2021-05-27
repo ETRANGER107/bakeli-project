@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import TutorialDataServiceD from "../../../../services/professeur2.service";
+import TutorialDataServiceD from "../../../services/professeur.service2";
 
 import Tutorial from "./Archive2";
 
-export default class ArchiveProfesseur extends Component {
+class ArchiveProfesseur extends Component {
   constructor(props) {
     super(props);
     this.refreshList = this.refreshList.bind(this);
@@ -77,7 +77,7 @@ export default class ArchiveProfesseur extends Component {
       <div className="list row">
         <div className="col-md-6">
         <div className="card-header bg-dark">
-          <h4 class="text-light">Professeur archivés</h4>
+          <h4 class="text-light">Professeurs archivés</h4>
           </div>
 
           <ul className="list-group">
@@ -96,10 +96,10 @@ export default class ArchiveProfesseur extends Component {
               ))}
           </ul>
           <button
-            className="m-3 btn btn-sm btn-danger"
+            className="m-3 btn btn-sm btn-danger text-dark"
             onClick={this.removeAllTutorials}
           >
-            Remove All
+            Enlever tout
           </button>
 
         </div>
@@ -112,7 +112,7 @@ export default class ArchiveProfesseur extends Component {
           ) : (
             <div>
               <br />
-              <p>Clickez pour voir les détails
+              <p>Cliquez sur un proffeseur pour voir ses détails
               </p>
             </div>
           )}
@@ -121,3 +121,5 @@ export default class ArchiveProfesseur extends Component {
     );
   }
 }
+
+export default ArchiveProfesseur;

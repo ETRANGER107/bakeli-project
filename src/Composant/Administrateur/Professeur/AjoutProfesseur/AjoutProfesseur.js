@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TutorialDataService from "../../../../services/professeur.service";
+import TutorialDataService from "../../../services/professeur.service";
 
 export default class AjoutProfesseur extends Component {
   constructor(props) {
@@ -83,8 +83,8 @@ export default class AjoutProfesseur extends Component {
       <div className="submit-form">
         {this.state.submitted ? (
           <div>
-            <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={this.newTutorial}>
+            <h4>Professeur ajouté avec succés!</h4>
+            <button className="btn btn-success text-dark" onClick={this.newTutorial}>
               Ajouter
             </button>
           </div>
@@ -93,10 +93,10 @@ export default class AjoutProfesseur extends Component {
             <div className="card">
 
               <div className="card-header bg-dark">
-              <h4 class="text-light">Ajouter</h4>
+              <h4 class="text-light">Ajouter un professeur</h4>
               </div>
 
-              <div className="card-body bg-danger">
+              <div className="card-body">
             <div className="form-group">
               <label htmlFor="title">Nom</label>
               <input
@@ -137,8 +137,8 @@ export default class AjoutProfesseur extends Component {
             </div>
  
 
-            <button onClick={this.saveTutorial} className="btn btn-success">
-              Submit
+            <button onClick={this.saveTutorial} className="btn btn-success text-dark">
+              Soumettre
             </button>
             </div>
           </div>
