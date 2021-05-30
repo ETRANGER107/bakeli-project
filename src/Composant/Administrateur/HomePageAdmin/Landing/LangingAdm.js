@@ -93,7 +93,7 @@ const LandingAdm = () => {
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="danger">48</h3>
+                            <h3 class="danger">5</h3>
                             <span>Projets</span>
                             </div>
                             <div class="align-self-center">
@@ -110,8 +110,8 @@ const LandingAdm = () => {
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="success">156</h3>
-                            <span>New User</span>
+                            <h3 class="success">Bakeli</h3>
+                            <span>Ecole de formation</span>
                             </div>
                             <div class="align-self-center">
                             <i class="icon-pointer success font-large-2 float-right"></i>
@@ -129,8 +129,8 @@ const LandingAdm = () => {
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="primary">23</h3>
-                            <span>tickets de support</span>
+                            <h3 class="primary">1 mois</h3>
+                            <span>Realisation du site</span>
                             </div>
                             <div class="align-self-center">
                             <i class="icon-support primary font-large-2 float-right"></i>
@@ -144,13 +144,12 @@ const LandingAdm = () => {
                 <div class="row">
                 <div class="col-xl-4 col-sm-6 col-12">
                     <div class="card">
-                    <Link to={"/liste_cours_adm"}>
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="primary">2</h3>
-                            <span>Nouveau Cours</span>
+                            <h3 class="primary">6</h3>
+                            <span>Developpers</span>
                             </div>
                             <div class="align-self-center">
                             <i class="fa fa-book primary font-large-2 float-right"></i>
@@ -161,7 +160,6 @@ const LandingAdm = () => {
                         </div>
                         </div>
                     </div>
-                    </Link>
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-12">
@@ -170,8 +168,8 @@ const LandingAdm = () => {
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="warning">156</h3>
-                            <span>Forum</span>
+                            <h3 class="warning">Paul Gomis</h3>
+                            <span>Chef du projet</span>
                             </div>
                             <div class="align-self-center">
                             <i class="icon-bubbles warning font-large-2 float-right"></i>
@@ -192,8 +190,8 @@ const LandingAdm = () => {
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="danger">423</h3>
-                            <span>Total Visiteurs</span>
+                            <h3 class="danger">REACT JS</h3>
+                            <span>Technologie</span>
                             </div>
                             <div class="align-self-center">
                             <i class="icon-direction danger font-large-2 float-right"></i>
