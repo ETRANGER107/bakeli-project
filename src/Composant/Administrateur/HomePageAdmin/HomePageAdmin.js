@@ -158,6 +158,7 @@ import Badge from 'react-bootstrap/Badge'
 import Button from 'react-bootstrap/Button'
 import ArchiveApp from "../Apprenant/Archive/Archives";
 import imagg from "../../../imagg.jpeg";
+import SignOutButton from "../../Apprenant/Logout/index"
 //import ListApprenant from "../Apprenant/ListApprenant"
 //import ApprenantProvider from "../Apprenant/context/AppreantContext";
 
@@ -196,7 +197,7 @@ const HomePageAdmin = () => {
 			<nav id="sidebar" class="active bg-info">
                 <Link  className="logo nav-link" to={ROUTES.HOME_ADM}><img src={imagg} style={{width: "60px", height: "60px", borderRadius: "50%", margin: "auto", marginTop: "20px"}}/></Link>
 				{/* <h1><Link className="logo nav-link" to={ROUTES.HOME_ADM}>M.</Link></h1> */}
-                <ul class="list-unstyled components mb-5">
+                <ul class="list-unstyled components mb-5 d-flex flex-column">
                 <li className="nav-item active">
                     <Link className="nav-link" to={ROUTES.HOME_ADM}><span class="fa fa-home"></span>Home</Link>
                 </li>
@@ -216,6 +217,7 @@ const HomePageAdmin = () => {
                         <Link className="dropdown-item px-4 py-2" to={ROUTES.ARCHI_COURSE}>Archive des cours</Link>
                     </div>
                 </li>
+                
                 <li>
                     <a href="#"><span class="fa fa-cogs"></span> Compte</a>
                 </li>
@@ -257,6 +259,9 @@ const HomePageAdmin = () => {
                     <li className="nav-item">
                         <Link className="nav-link" to={ROUTES.LISTE_APP}>ListeApprenant</Link>
                     </li>
+                    <li>
+                    <SignOutButton />
+                </li>
                 </ul>
                 </div>
             </div>
@@ -316,3 +321,4 @@ const HomePageAdmin = () => {
 }
 
 export default HomePageAdmin;
+

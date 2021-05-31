@@ -1,0 +1,5 @@
+.card:hover
+{
+	transform: translateY(-15px);
+    border-color: rgba(0, 255, 242, 0.658);
+}

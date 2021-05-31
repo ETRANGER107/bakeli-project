@@ -6,6 +6,7 @@ import ProfLength from "../../Professeur/ListeProfesseur/ProfLength";
 import Tutorial from "../../Cours/ListeCoursAdmin/ListeCoursAdmin";
 import tutorials from "../../Cours/ListeCoursAdmin/ListeCoursAdmin";
 import TutorialDataService from "../../Cours/ListeCoursAdmin/ListeCoursAdmin";
+import "./LandingAdm.css"
 
 
 const LandingAdm = () => {
