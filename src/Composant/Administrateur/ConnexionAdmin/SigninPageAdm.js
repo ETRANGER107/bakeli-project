@@ -54,7 +54,7 @@ const SignInPageAdm = (props) => {
 
     return(
         <>
-        <Container className="d-flex align-items-center justify-content-center mt-5" style={{ minWidth:"100vh"}}>
+        <div className="container-fluid d-flex align-items-center justify-content-center mt-0 mx-0 main-page" style={{ minWidth:"100vh", height: "100vh"}}>
           <div className="w-100" style={{ maxWidth:"400px"}}>
           <Card>
           { error !== "" && <span className=" alert alert-danger">{ error.message }</span>}
@@ -80,7 +80,7 @@ const SignInPageAdm = (props) => {
             vous voulez vous inscrire ? <Link to="/signup">inscrivez-vous</Link>
           </div>
           </div>
-          </Container>
+          </div>
         </>
     )
 }

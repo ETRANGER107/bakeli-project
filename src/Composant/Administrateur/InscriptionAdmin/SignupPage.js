@@ -59,7 +59,7 @@ const SignUpPage = (props) => {
 
     return(
         <>
-    <Container className="d-flex align-items-center justify-content-center mt-5" style={{ minWidth:"100vh"}}>
+    <div className="container-fluid d-flex align-items-center justify-content-center mt-0 mx-0 main-page" style={{ minWidth:"100vh", height: "100vh"}}>
       <div className="w-100" style={{ maxWidth:"400px"}}>
       <Card>
         <Card.Body>
@@ -99,7 +99,7 @@ const SignUpPage = (props) => {
         Already have an account? <Link to="/login">login</Link>
       </div>
       </div>
-      </Container>
+      </div>
     </>
         
     )
