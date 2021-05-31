@@ -1,8 +1,16 @@
 import React from "react"
 import { Link } from 'react-router-dom';
-// import tutorials from "../../Cours/ListeCoursAdmin/ListeCoursAdmin"
+import AppLength from "../../Apprenant/ListeApprenant/AppLength";
+import CourLength from "../../Cours/ListeCoursAdmin/CourLength";
+import ProfLength from "../../Professeur/ListeProfesseur/ProfLength";
+import Tutorial from "../../Cours/ListeCoursAdmin/ListeCoursAdmin";
+import tutorials from "../../Cours/ListeCoursAdmin/ListeCoursAdmin";
+import TutorialDataService from "../../Cours/ListeCoursAdmin/ListeCoursAdmin";
+import "./LandingAdm.css"
+
 
 const LandingAdm = () => {
+    
     return(
         <div class="grey-bg container-fluid">
             <section id="minimal-statistics">
@@ -13,8 +21,8 @@ const LandingAdm = () => {
                 </div>
                 <div class="row">
                 <div class="col-xl-4 col-sm-6 col-12"> 
-                    <div class="card">
-                    <Link to={"/liste_prof"}>
+                    <div class="card cardLanding">
+                    <Link to={"/liste_prof"} style={{color: "black"}}>
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
@@ -22,7 +30,7 @@ const LandingAdm = () => {
                             <i class="icon-pencil primary font-large-2 float-left"></i>
                             </div>
                             <div class="media-body text-right">
-                            <h3>56</h3>
+                            <h3 className="success"><ProfLength /></h3>
                             <span>Professeurs</span>
                             </div>
                         </div>
@@ -32,19 +40,23 @@ const LandingAdm = () => {
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-12">
-                    <div class="card">
-                    <Link to={"/liste_cours_adm"}>
+                    <div class="card cardLanding">
+                    <Link to={"/liste_cours_adm"} style={{color: "black"}}>
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="align-self-center">
-                            <i class="fa fa-book warning font-large-2 float-left" aria-hidden="true"></i>
+                            <i class="icon-book-open warning font-large-2 float-left" aria-hidden="true"></i>
                             </div>
                             <div class="media-body text-right">
                             {/* {tutorials.length} */}
                            {/* {` ${tutorials.length}`} */}
-                            <h3>17</h3>
-                            <span>Nouveau Cours</span>
+              
+              
+            
+          
+                            <h3 className="warning"><CourLength/></h3>
+                            <span>Total Cours</span>
                             </div>
                         </div>
                         </div>
@@ -53,16 +65,18 @@ const LandingAdm = () => {
                     </div>
                 </div>     
                 <div class="col-xl-4 col-sm-6 col-12">
-                    <div class="card">
-                    <Link to={"/liste_app"}>
+                    <div class="card cardLanding">
+                    <Link to={"/liste_app"} style={{color: "black"}}>
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="align-self-center">
-                            <i class="icon-pointer danger font-large-2 float-left"></i>
+                            <i class="icon-user danger font-large-2 float-left"></i>
                             </div>
                             <div class="media-body text-right">
-                            <h3>423</h3>
+
+                            <h3 className="danger"><AppLength /></h3>
+
                             <span>Utilisateurs</span>
                             </div>
                         </div>
@@ -75,12 +89,12 @@ const LandingAdm = () => {
             
                 <div class="row">
                 <div class="col-xl-4 col-sm-6 col-12">
-                    <div class="card">
+                    <div class="card cardLanding">
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="danger">48</h3>
+                            <h3 class="danger">5</h3>
                             <span>Projets</span>
                             </div>
                             <div class="align-self-center">
@@ -92,16 +106,16 @@ const LandingAdm = () => {
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-12">
-                    <div class="card">
+                    <div class="card cardLanding">
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="success">156</h3>
-                            <span>New User</span>
+                            <h3 class="success">Bakeli</h3>
+                            <span>Ecole de formation</span>
                             </div>
                             <div class="align-self-center">
-                            <i class="icon-user success font-large-2 float-right"></i>
+                            <i class="icon-pointer success font-large-2 float-right"></i>
                             </div>
                         </div>
                         </div>
@@ -111,13 +125,13 @@ const LandingAdm = () => {
             
                 
                 <div class="col-xl-4 col-sm-6 col-12">
-                    <div class="card">
+                    <div class="card cardLanding">
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="primary">23</h3>
-                            <span>tickets de support</span>
+                            <h3 class="primary">1 mois</h3>
+                            <span>Realisation du site</span>
                             </div>
                             <div class="align-self-center">
                             <i class="icon-support primary font-large-2 float-right"></i>
@@ -130,17 +144,16 @@ const LandingAdm = () => {
                 </div>          
                 <div class="row">
                 <div class="col-xl-4 col-sm-6 col-12">
-                    <div class="card">
-                    <Link to={"/liste_cours_adm"}>
+                    <div class="card cardLanding">
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="primary">278</h3>
-                            <span>Total Cours</span>
+                            <h3 class="primary">6</h3>
+                            <span>Developpers</span>
                             </div>
                             <div class="align-self-center">
-                            <i class="icon-book-open primary font-large-2 float-right"></i>
+                            <i class="fa fa-book primary font-large-2 float-right"></i>
                             </div>
                         </div>
                         <div class="progress mt-1 mb-0" style={{height:"7px"}}>
@@ -148,17 +161,16 @@ const LandingAdm = () => {
                         </div>
                         </div>
                     </div>
-                    </Link>
                     </div>
                 </div>
                 <div class="col-xl-4 col-sm-6 col-12">
-                    <div class="card">
+                    <div class="card cardLanding">
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="warning">156</h3>
-                            <span>Forum</span>
+                            <h4 class="warning">Paul Gomis</h4>
+                            <span>Chef du projet</span>
                             </div>
                             <div class="align-self-center">
                             <i class="icon-bubbles warning font-large-2 float-right"></i>
@@ -174,13 +186,13 @@ const LandingAdm = () => {
             
                 
                 <div class="col-xl-4 col-sm-6 col-12">
-                    <div class="card">
+                    <div class="card cardLanding">
                     <div class="card-content">
                         <div class="card-body">
                         <div class="media d-flex">
                             <div class="media-body text-left">
-                            <h3 class="danger">423</h3>
-                            <span>Total Visiteurs</span>
+                            <h4 class="danger">REACT JS</h4>
+                            <span>Technologie</span>
                             </div>
                             <div class="align-self-center">
                             <i class="icon-direction danger font-large-2 float-right"></i>

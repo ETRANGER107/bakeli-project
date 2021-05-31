@@ -12,8 +12,15 @@
   color: #333;
   text-shadow: none; /* Prevent inheritance from `body` */
 }
-
-
+.body {
+  min-height: 100vh;
+  background: linear-gradient(rgba(63, 208, 212, 0.5), rgba(0, 0, 0, 0.7)),
+    url(../../fond.jpg) center/cover no-repeat;
+}
+/*.card
+{
+	transform: translateY(-10px);
+}*/
 
 /*
  * Base structure
