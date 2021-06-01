@@ -4,14 +4,15 @@ import qd from '../img/qd.jpg';
 import uxx from '../img/uxx.jpeg';
 import market from '../img/market.png';
 import devweb from '../img/devweb.png';
+import "./index.css"
 
 const Card = () => {
     return(
         <div className="cours mb-2">
                 <div className="row">
                     <div className="col">
-                        <p>Cours populaires</p>
-                        <div className="card text-black bg-warning mb-2 d-flex flex-row align-items-center">
+                        <p>Cours à venir</p>
+                        <div className="card text-black bg-warning mb-2 d-flex flex-row align-items-center cardA">
                             <div className="col-md-2">
                                 <img className="card-img-top rounded-circle img-card" src={qd} alt="Card image cap cinema" />
                             </div>
@@ -32,7 +33,7 @@ const Card = () => {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <div className="card text-white bg-secondary mb-2 d-flex flex-row align-items-center">
+                        <div className="card text-white bg-secondary mb-2 d-flex flex-row align-items-center cardA">
                             <div className="col-md-2">
                                 <img className="card-img-top rounded-circle img-card" src={devweb} alt="Card image cap profile" />
                             </div>
@@ -54,7 +55,7 @@ const Card = () => {
                 
                 <div className="row">
                     <div className="col">
-                        <div className="card text-white bg-info mb-2 d-flex flex-row align-items-center">
+                        <div className="card text-white bg-info mb-2 d-flex flex-row align-items-center cardA">
                             <div className="col-md-2">
                                 <img className="card-img-top rounded-circle img-card" src={market} alt="Card image cap marketing" />
                             </div>
@@ -75,7 +76,7 @@ const Card = () => {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <div className="card text-black bg-success mb-2 d-flex flex-row align-items-center">
+                        <div className="card text-black bg-success mb-2 d-flex flex-row align-items-center cardA">
                             <div className="col-md-2">
                                 <img className="card-img-top rounded-circle img-card" src={uxx} alt="Card image cap ux" />
                             </div>
