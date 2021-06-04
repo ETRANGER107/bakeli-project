@@ -145,6 +145,7 @@ import Badge from 'react-bootstrap/Badge'
 import imagg from "../../../imagg.jpeg"
 //import ListeCours from '../Cours/ListeCours/ListeCours'
 import SignOutButton from "../Logout"
+import Search from "../../Search";
 
 
 const HomePageApp = () => {
@@ -236,6 +237,10 @@ const HomePageApp = () => {
                     <div className="d-flex">
                     <h6 class="mb-4">Dashboard apprenant</h6>
                     <div className="d-flex flex-row ml-auto pr-5">
+
+                    <Search />
+                       
+
                         <p> 
                             Messages <Badge pill variant="danger" className="mr-3">new</Badge>
                         </p>
@@ -243,6 +248,7 @@ const HomePageApp = () => {
                             Notification <Badge pill variant="info">13</Badge>
                         </p>
                     </div>
+                    
                     
                 </div>
                         
